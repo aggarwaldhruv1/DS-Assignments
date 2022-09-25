@@ -1,0 +1,68 @@
+"""
+Name: Dhruv Aggarwal
+SID: 21107064
+Branch: Mechanical
+"""
+
+
+class Node:
+    def __init__(self, name=None, age=None):
+        self.prev = None
+        self.next = None
+        self.name = name
+        self.age = age
+
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert(self, name, age):
+        node = Node(name, age)
+        if self.head is None:  # no element present
+            self.head = node
+            self.tail = node
+        else:  # we will be adding the element at the end if its not the first
+            temp1 = self.head
+            while temp1.next is not None:
+                temp1 = temp1.next
+            node.prev = temp1
+            temp1.next = node
+            self.tail = node
+
+
+print('Enter the no of family members:')
+n = int(input())
+names = n * [None]
+ages = n * [None]
+
+i: int
+for i in range(0, n):
+    print('Enter the name of family member:')
+    names[i] = input()
+    print('Enter the age of family member:')
+    ages[i] = int(input())
+for i in range(0, n):
+    for j in range(0, n - i - 1):
+        if ages[j] < ages[j + 1]:
+            ages[j], ages[j + 1] = ages[j + 1], ages[j]
+            names[j], names[j + 1] = names[j + 1], names[j]
+FamilyTree = DoublyLinkedList()
+for i in range(0, n):
+    FamilyTree.insert(names[i], ages[i])
+temp = FamilyTree.head
+for i in range(0, n):  # printing the familytree
+    print('|Name: ', temp.name, ' age: ', temp.age, '|  ---><---- ', end='')
+    temp = temp.next
+print('None')
+
+
+"""
+Bonus Question
+Q.Try to find a way to link the family members' doubly-linked list based on their relationship.
+Ans.One way to link the family members doubly-linked list is by sorting the doubly linked list
+according to age in descending order.By doing so we will get a doubly linked list in which older
+generation people will be close to head in double linked list and new generation people will be
+close to tail in doubly linked list.
+"""
