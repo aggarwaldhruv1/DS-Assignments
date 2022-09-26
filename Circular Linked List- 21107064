@@ -57,7 +57,7 @@ then that node is the end of circular linked list.
 /*
 [Question.2]  What are the practical applications of a circular linked list? (Try to find applications in your respective fields).
 Practical applications of circular linked list are :
-1)Online Multiplayer Games: All the Players are kept in a Circular Linked List and the pointer keeps on moving forward as a player's chance ends.
+1)Online Games: Round Robin scheduling technique in games.
 2)Computing Resources: Circular Linked Lists is used to manage the computing resources in the computer.
 3)Audio/Video Streaming: Circular linked list is also used in audio and video streaming,for ex. when one copmlete audio list finishes playing in music player
 then it again starts playing from start.
